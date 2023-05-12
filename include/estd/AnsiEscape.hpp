@@ -92,15 +92,15 @@ namespace estd {
     }
 
     //clears a full line in the terminal
-    const std::string saveCursorPosition = "\e[s";
-    const std::string restoreCursorPosition = "\e[u";
+    const std::string saveCursorPosition = "\033[s";
+    const std::string restoreCursorPosition = "\033[u";
     inline std::string scroll(int y) {
         if(y < 0) {return "\033[" + std::to_string(y) + "S"; }
         return "\033[" + std::to_string(y) + "T";
     }
 
     inline std::string resizeWindow(int x,int y) {
-        return "\e[8;"+std::to_string(y)+";"+std::to_string(x)+"t";
+        return "\033[8;"+std::to_string(y)+";"+std::to_string(x)+"t";
     }
     
 
